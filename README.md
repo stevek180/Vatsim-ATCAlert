@@ -5,6 +5,6 @@ This will allow VATSIM users to be audibly alerted when a controller at a partic
 
 Starting off with a simple .NET Console app that takes an airport code and searches ONLY for Tower, i.e. "BOS_TWR".  
 
-Will extend to be more flexible in the future, i.e. a GUI with dropdowns and multiple alerts.
+Will extend to be more flexible in the future, i.e. a GUI with dropdowns and alerts for multiple Controller roles.
 
 
