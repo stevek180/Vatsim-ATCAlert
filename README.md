@@ -1,5 +1,6 @@
 # Vatsim-ATCAlert
 
+*Very much a work in progress*
 
 This will allow VATSIM users to be audibly alerted when a controller at a particular airport comes online.  It queries VATSIM servers every thirty seconds.  
 
