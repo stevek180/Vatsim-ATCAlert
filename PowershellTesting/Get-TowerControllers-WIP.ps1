@@ -3,7 +3,7 @@ $url = "https://api.vatsim.net/v2/atc/online"
 
 $result = Invoke-WebRequest -uri $url -Method Get 
 
-$result.
+$result.Content
 
 while($true){
     $controllers = $result.Content | ConvertFrom-Json

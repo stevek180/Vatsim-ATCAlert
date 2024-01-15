@@ -5,9 +5,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 
-
-
-
 namespace MyApp // Note: actual namespace depends on the project name.
 {
     internal class Program
@@ -20,7 +17,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             var airportCode = Console.ReadLine().ToUpper();
 
-            Console.WriteLine($"Monitoring every 30 seconds for ATC that starts with {airportCode}_ and contains 'TWR' ");
+            Console.WriteLine($"Monitoring every 30 seconds for ATC that starts with '{airportCode}_' and contains 'TWR' ");
 
             bool found = false;
             while(!found)
