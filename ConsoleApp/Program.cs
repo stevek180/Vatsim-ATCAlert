@@ -14,7 +14,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine("This will monitor an airport code when Tower comes online.");
             Console.WriteLine("Enter a three- or four-character airport code, i.e. 'BOS'.  Do not use 'KBOS'");
             Console.WriteLine("Note that US airports omit the leading 'K', but others use the full ICAO code.");
-
+            //todo:  add logic that removes K for us airports, or similar.  
             var airportCode = Console.ReadLine().ToUpper();
 
             Console.WriteLine($"Monitoring every 30 seconds for ATC that starts with '{airportCode}_' and contains 'TWR' ");
