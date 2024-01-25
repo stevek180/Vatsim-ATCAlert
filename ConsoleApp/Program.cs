@@ -33,7 +33,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     {
                         // Process the successful response here
                         string responseData = await response.Content.ReadAsStringAsync();
-                        //Console.WriteLine(responseData);
+                        File.WriteAllText("testVatsim.json", responseData);
+
                         
                         if(IsTowerOnline(airportCode,responseData))
                         {

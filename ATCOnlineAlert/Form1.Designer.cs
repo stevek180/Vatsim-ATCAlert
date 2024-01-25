@@ -30,10 +30,10 @@
         {
             btnTestTone = new Button();
             chkTower = new CheckBox();
-            listStatus = new ListView();
             btnStartListen = new Button();
             label1 = new Label();
             txtAirportcode = new TextBox();
+            listStatus = new ListBox();
             SuspendLayout();
             // 
             // btnTestTone
@@ -58,17 +58,6 @@
             chkTower.TabIndex = 1;
             chkTower.Text = "Tower";
             chkTower.UseVisualStyleBackColor = true;
-            // 
-            // listStatus
-            // 
-            listStatus.Font = new Font("Segoe UI", 14.1428576F, FontStyle.Regular, GraphicsUnit.Point);
-            listStatus.LabelWrap = false;
-            listStatus.Location = new Point(570, 303);
-            listStatus.Name = "listStatus";
-            listStatus.Size = new Size(743, 193);
-            listStatus.TabIndex = 5;
-            listStatus.UseCompatibleStateImageBehavior = false;
-            listStatus.View = View.List;
             // 
             // btnStartListen
             // 
@@ -100,16 +89,26 @@
             txtAirportcode.Size = new Size(321, 57);
             txtAirportcode.TabIndex = 8;
             // 
+            // listStatus
+            // 
+            listStatus.Font = new Font("Segoe UI", 14.1428576F, FontStyle.Regular, GraphicsUnit.Point);
+            listStatus.FormattingEnabled = true;
+            listStatus.ItemHeight = 45;
+            listStatus.Location = new Point(529, 246);
+            listStatus.Name = "listStatus";
+            listStatus.Size = new Size(961, 274);
+            listStatus.TabIndex = 9;
+            // 
             // Form1
             // 
             AcceptButton = btnStartListen;
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1398, 564);
+            ClientSize = new Size(1585, 564);
+            Controls.Add(listStatus);
             Controls.Add(txtAirportcode);
             Controls.Add(label1);
             Controls.Add(btnStartListen);
-            Controls.Add(listStatus);
             Controls.Add(chkTower);
             Controls.Add(btnTestTone);
             Name = "Form1";
@@ -123,9 +122,9 @@
 
         private Button btnTestTone;
         private CheckBox chkTower;
-        private ListView listStatus;
         private Button btnStartListen;
         private Label label1;
         private TextBox txtAirportcode;
+        private ListBox listStatus;
     }
 }

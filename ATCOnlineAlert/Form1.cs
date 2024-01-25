@@ -23,6 +23,17 @@ namespace ATCOnlineAlert
             txtAirportcode.SelectionStart = txtAirportcode.Text.Length;
         }
 
+        private void btnTestTone_Click(object sender, EventArgs e)
+        {
+            BringTheNoise();
+        }
+
+        private void btnStartListen_Click(object sender, EventArgs e)
+        {
+            ValidateAndStart();
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             chkTower.Checked = true;
@@ -32,6 +43,7 @@ namespace ATCOnlineAlert
 
         private void ValidateAndStart()
         {
+            keepListening = true;
             if (txtAirportcode.Text.Length < 4)
             {
                 MessageBox.Show("Airport code must be four characters");
@@ -55,16 +67,22 @@ namespace ATCOnlineAlert
             {
                 
                 await CallVatsimAPI();
+                
                 await Task.Delay(TimeSpan.FromSeconds(refreshRate));
+                UpdateListBox($"Listening for {txtAirportcode.Text} at {DateTime.Now.ToShortTimeString()}");
+
             }
 
         }
 
-        private async Task CallVatsimAPI()
+        private async Task CallVatsimAPI(bool testing = false)
         {
+
+            
             try
             {
                 // Make the HTTP API call
+                
                 HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
 
                 // Check if the response is successful
@@ -72,7 +90,8 @@ namespace ATCOnlineAlert
                 {
                     // Read the JSON response
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-
+                    if(testing)
+                        jsonResponse = File.ReadAllText("C:\\Users\\stkeller\\source\\repos\\Vatsim-ATCAlert\\ATCOnlineAlert\\testVatsim.json");
                     // Check if the JSON response meets your criteria
                     if (IsATCOnline(txtAirportcode.Text.ToUpper(), jsonResponse,"TWR"))
                     {
@@ -125,6 +144,7 @@ namespace ATCOnlineAlert
             // Use BeginInvoke to update UI controls from a different thread
             listStatus.BeginInvoke((MethodInvoker)delegate {
                 listStatus.Items.Add(text);
+                listStatus.TopIndex = listStatus.Items.Count - 1;
             });
         }
 
@@ -136,15 +156,7 @@ namespace ATCOnlineAlert
 
         }
 
-        private void btnTestTone_Click(object sender, EventArgs e)
-        {
-            BringTheNoise();
-        }
-
-        private void btnStartListen_Click(object sender, EventArgs e)
-        {
-            ValidateAndStart();
-        }
+       
     }
 }
 
