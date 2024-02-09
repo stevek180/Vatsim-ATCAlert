@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Speech.Synthesis;
+
 
 
 
@@ -16,6 +18,8 @@ namespace ATCOnlineAlert
         private bool keepListening = true;
         private int refreshRate = 30;  //seconds
 
+        private SpeechSynthesizer synthesizer = new SpeechSynthesizer();
+
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +29,7 @@ namespace ATCOnlineAlert
 
         private void btnTestTone_Click(object sender, EventArgs e)
         {
-            BringTheNoise();
+            BringTheNoise("You'll hear my voice when your tower becomes active. ");
         }
 
         private void btnStartListen_Click(object sender, EventArgs e)
@@ -38,7 +42,7 @@ namespace ATCOnlineAlert
         {
             chkTower.Checked = true;
             chkTower.Enabled = false;
-            
+
         }
 
         private void ValidateAndStart()
@@ -60,14 +64,14 @@ namespace ATCOnlineAlert
 
         }
 
-        
+
         private async void Listen()
         {
-            while(keepListening)
+            while (keepListening)
             {
-                
+
                 await CallVatsimAPI();
-                
+
                 await Task.Delay(TimeSpan.FromSeconds(refreshRate));
                 UpdateListBox($"Listening for {txtAirportcode.Text} at {DateTime.Now.ToShortTimeString()}");
 
@@ -78,11 +82,11 @@ namespace ATCOnlineAlert
         private async Task CallVatsimAPI(bool testing = false)
         {
 
-            
+
             try
             {
                 // Make the HTTP API call
-                
+
                 HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
 
                 // Check if the response is successful
@@ -90,14 +94,14 @@ namespace ATCOnlineAlert
                 {
                     // Read the JSON response
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    if(testing)
+                    if (testing)
                         jsonResponse = File.ReadAllText("C:\\Users\\stkeller\\source\\repos\\Vatsim-ATCAlert\\ATCOnlineAlert\\testVatsim.json");
                     // Check if the JSON response meets your criteria
-                    if (IsATCOnline(txtAirportcode.Text.ToUpper(), jsonResponse,"TWR"))
+                    if (IsATCOnline(txtAirportcode.Text.ToUpper(), jsonResponse, "TWR"))
                     {
                         // Update the ListBox with the desired text
                         UpdateListBox($"Tower online at {txtAirportcode.Text}");
-                        BringTheNoise();
+                        BringTheNoise($"Tower online at {txtAirportcode.Text}");
                         keepListening = false;
                     }
                 }
@@ -118,7 +122,7 @@ namespace ATCOnlineAlert
         {
             if (airportCodeUC.StartsWith("K"))
                 airportCodeUC = airportCodeUC.Substring(1);
-                      
+
             JArray jsonArray = JArray.Parse(VatsimJSON);
             Console.WriteLine(jsonArray.Count);
 
@@ -142,7 +146,8 @@ namespace ATCOnlineAlert
         private void UpdateListBox(string text)
         {
             // Use BeginInvoke to update UI controls from a different thread
-            listStatus.BeginInvoke((MethodInvoker)delegate {
+            listStatus.BeginInvoke((MethodInvoker)delegate
+            {
                 listStatus.Items.Add(text);
                 listStatus.TopIndex = listStatus.Items.Count - 1;
             });
@@ -156,7 +161,27 @@ namespace ATCOnlineAlert
 
         }
 
-       
+        private void BringTheNoise(string whatToSay)
+        {
+            
+            synthesizer.SpeakAsync(whatToSay);
+
+
+        }
+
+
+        private void txtAirportcode_TextChanged(object sender, EventArgs e)
+        {
+            txtAirportcode.Text = txtAirportcode.Text.ToUpper();
+            txtAirportcode.SelectionStart = txtAirportcode.Text.Length;
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            synthesizer.Dispose();
+
+        }
     }
 }
 
