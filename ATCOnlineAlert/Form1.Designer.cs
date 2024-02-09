@@ -88,6 +88,7 @@
             txtAirportcode.Name = "txtAirportcode";
             txtAirportcode.Size = new Size(321, 57);
             txtAirportcode.TabIndex = 8;
+            txtAirportcode.TextChanged += txtAirportcode_TextChanged;
             // 
             // listStatus
             // 
@@ -113,6 +114,7 @@
             Controls.Add(btnTestTone);
             Name = "Form1";
             Text = "ATC Alert Tool";
+            FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
