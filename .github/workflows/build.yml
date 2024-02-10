@@ -39,7 +39,7 @@ jobs:
           git add README.md
           git commit -m "Update README with download link"
           git push https://$GH_TOKEN@github.com/username/repository.git HEAD:main
-        working-directory: ./path/to/your/project
+        working-directory: ./ATCOnlineAlert
         env:
           GH_TOKEN: ${{ secrets.ACTIONS_PAT }}
 
