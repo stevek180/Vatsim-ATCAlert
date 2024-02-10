@@ -29,7 +29,7 @@ jobs:
       - name: Zip Artifacts
         run: |
           mkdir artifacts
-          zip -r artifacts/app.zip <path-to-artifacts>
+          zip -r artifacts/app.zip bin/Release
         working-directory: ./ATCOnlineAlert
       - name: Update Readme
         run: |
