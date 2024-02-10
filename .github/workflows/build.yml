@@ -20,15 +20,17 @@ jobs:
 
       - name: Restore Dependencies
         run: dotnet restore
+        working-directory: ./ATCOnlineAlert
 
       - name: Build Application
         run: dotnet build --configuration Release
+        working-directory: ./ATCOnlineAlert
 
       - name: Zip Artifacts
         run: |
           mkdir artifacts
           zip -r artifacts/app.zip <path-to-artifacts>
-
+        working-directory: ./ATCOnlineAlert
       - name: Update Readme
         run: |
           echo "[Download App](./artifacts/app.zip)" > README.md
@@ -37,4 +39,5 @@ jobs:
           git add README.md
           git commit -m "Update README with download link"
           git push
+        working-directory: ./ATCOnlineAlert
 
