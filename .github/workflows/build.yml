@@ -1,1 +1,40 @@
+name: Build and Update Readme
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x' # Update with your desired .NET version
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      - name: Build Application
+        run: dotnet build --configuration Release
+
+      - name: Zip Artifacts
+        run: |
+          mkdir artifacts
+          zip -r artifacts/app.zip <path-to-artifacts>
+
+      - name: Update Readme
+        run: |
+          echo "[Download App](./artifacts/app.zip)" > README.md
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+          git add README.md
+          git commit -m "Update README with download link"
+          git push
 
