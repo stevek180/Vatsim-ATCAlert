@@ -19,12 +19,14 @@ namespace ATCOnlineAlert
         private int refreshRate = 30;  //seconds
 
         private SpeechSynthesizer synthesizer = new SpeechSynthesizer();
+        
 
         public Form1()
         {
             InitializeComponent();
             txtAirportcode.Focus();
             txtAirportcode.SelectionStart = txtAirportcode.Text.Length;
+            
         }
 
         private void btnTestTone_Click(object sender, EventArgs e)
@@ -59,7 +61,10 @@ namespace ATCOnlineAlert
                 return;
             }
             listStatus.Items.Clear();
-            listStatus.Items.Add($"Listening at airport {txtAirportcode.Text} every {refreshRate} seconds.");
+            var listenString = $"Listening at airport {txtAirportcode.Text} every {refreshRate} seconds.";
+            listStatus.Items.Add(listenString);
+            BringTheNoise(listenString);
+
             Listen();
 
         }
