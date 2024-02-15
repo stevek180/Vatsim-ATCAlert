@@ -1,7 +1,7 @@
 [
   {
     "id": 1523136,
-    "callsign": "IND_E_APP",
+    "callsign": "INX_TWR",
     "start": "2024-01-24T23:46:01Z",
     "server": "VIRTUALNAS",
     "rating": 4,
@@ -9,7 +9,7 @@
   },
   {
     "id": 1437546,
-    "callsign": "IND_GND",
+    "callsign": "INX_GND",
     "start": "2024-01-25T00:48:33Z",
     "server": "VIRTUALNAS",
     "rating": 2,
