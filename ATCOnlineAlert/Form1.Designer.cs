@@ -34,13 +34,15 @@
             label1 = new Label();
             txtAirportcode = new TextBox();
             listStatus = new ListBox();
+            btnStopListening = new Button();
+            chkGround = new CheckBox();
             SuspendLayout();
             // 
             // btnTestTone
             // 
             btnTestTone.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
             btnTestTone.ForeColor = SystemColors.ActiveCaptionText;
-            btnTestTone.Location = new Point(71, 420);
+            btnTestTone.Location = new Point(71, 444);
             btnTestTone.Name = "btnTestTone";
             btnTestTone.Size = new Size(365, 76);
             btnTestTone.TabIndex = 0;
@@ -63,7 +65,7 @@
             // 
             btnStartListen.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
             btnStartListen.ForeColor = SystemColors.ActiveCaptionText;
-            btnStartListen.Location = new Point(71, 303);
+            btnStartListen.Location = new Point(71, 237);
             btnStartListen.Name = "btnStartListen";
             btnStartListen.Size = new Size(365, 78);
             btnStartListen.TabIndex = 6;
@@ -100,12 +102,37 @@
             listStatus.Size = new Size(961, 274);
             listStatus.TabIndex = 9;
             // 
+            // btnStopListening
+            // 
+            btnStopListening.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
+            btnStopListening.ForeColor = SystemColors.ActiveCaptionText;
+            btnStopListening.Location = new Point(71, 336);
+            btnStopListening.Name = "btnStopListening";
+            btnStopListening.Size = new Size(365, 78);
+            btnStopListening.TabIndex = 10;
+            btnStopListening.Text = "Stop";
+            btnStopListening.UseVisualStyleBackColor = true;
+            btnStopListening.Click += btnStopListening_Click;
+            // 
+            // chkGround
+            // 
+            chkGround.AutoSize = true;
+            chkGround.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
+            chkGround.Location = new Point(776, 149);
+            chkGround.Name = "chkGround";
+            chkGround.Size = new Size(172, 54);
+            chkGround.TabIndex = 11;
+            chkGround.Text = "Ground";
+            chkGround.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AcceptButton = btnStartListen;
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1585, 564);
+            Controls.Add(chkGround);
+            Controls.Add(btnStopListening);
             Controls.Add(listStatus);
             Controls.Add(txtAirportcode);
             Controls.Add(label1);
@@ -128,5 +155,7 @@
         private Label label1;
         private TextBox txtAirportcode;
         private ListBox listStatus;
+        private Button btnStopListening;
+        private CheckBox chkGround;
     }
 }
