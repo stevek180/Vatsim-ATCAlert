@@ -1,9 +1,6 @@
 name: Build and Update Readme
 
-on:
-  push:
-    branches:
-      - main
+
 
 jobs:
   build:
