@@ -1,4 +1,4 @@
-name: Build and Update Readme
+name: Build and Release
 
 on: workflow_dispatch
  
