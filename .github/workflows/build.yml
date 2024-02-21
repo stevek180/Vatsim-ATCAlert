@@ -31,7 +31,7 @@ jobs:
         working-directory: ./ATCOnlineAlert
 
       - name:  Get DIR
-        run: dir -recurse
+        run: dir /s
         
       
       - name: Publish Artifact
