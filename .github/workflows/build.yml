@@ -34,4 +34,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: MyApplication
-          path: bin/Release/net6.0-windows/
+          path: ./artifacts/app.zip
