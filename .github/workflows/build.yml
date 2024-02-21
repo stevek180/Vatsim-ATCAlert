@@ -27,7 +27,7 @@ jobs:
       - name: Zip Artifacts
         run: |
           mkdir artifacts
-          zip -r artifacts/app.zip bin/Release
+          zip -r artifacts/ATCOnlineAlert.zip bin/Release
         working-directory: ./ATCOnlineAlert
 
       - name:  Get DIR
@@ -37,5 +37,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: MyApplication
-          path: /artifacts/app.zip
+          name: ATCOnlineAlert
+          path: ./ATCOnlineAlert/artifacts/ATCOnlineAlert.zip
