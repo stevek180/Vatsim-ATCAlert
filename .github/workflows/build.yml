@@ -1,9 +1,7 @@
 name: Build and Update Readme
 
-on:
-  push:
-    branches:
-      - none
+on: workflow_dispatch
+ 
 
 jobs:
   build:
