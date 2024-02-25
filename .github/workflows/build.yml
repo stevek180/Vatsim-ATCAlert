@@ -1,9 +1,7 @@
-name: Build and Update Readme
+name: Build and Release
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
+ 
 
 jobs:
   build:
@@ -29,17 +27,15 @@ jobs:
       - name: Zip Artifacts
         run: |
           mkdir artifacts
-          zip -r artifacts/app.zip bin/Release
+          zip -r artifacts/ATCOnlineAlert.zip bin/Release
         working-directory: ./ATCOnlineAlert
-      - name: Update Readme
-        run: |
-          echo "[Download App](./artifacts/app.zip)" > README.md
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "GitHub Actions"
-          git add README.md
-          git commit -m "Update README with download link"
-          git push https://$GH_TOKEN@github.com/stevek180/Vatsim-ATCAlert.git HEAD:main
-        working-directory: ./ATCOnlineAlert
-        env:
-          GH_TOKEN: ${{ secrets.ACTIONS_PAT }}
 
+      - name:  Get DIR
+        run: dir --recursive
+        
+      
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ATCOnlineAlert
+          path: ./ATCOnlineAlert/artifacts/ATCOnlineAlert.zip
