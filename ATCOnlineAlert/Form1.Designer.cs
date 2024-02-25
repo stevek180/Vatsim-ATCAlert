@@ -42,9 +42,9 @@
             // 
             btnTestTone.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
             btnTestTone.ForeColor = SystemColors.ActiveCaptionText;
-            btnTestTone.Location = new Point(71, 444);
+            btnTestTone.Location = new Point(12, 426);
             btnTestTone.Name = "btnTestTone";
-            btnTestTone.Size = new Size(365, 76);
+            btnTestTone.Size = new Size(280, 76);
             btnTestTone.TabIndex = 0;
             btnTestTone.Text = "Test Tone";
             btnTestTone.UseVisualStyleBackColor = true;
@@ -54,7 +54,7 @@
             // 
             chkTower.AutoSize = true;
             chkTower.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
-            chkTower.Location = new Point(776, 89);
+            chkTower.Location = new Point(342, 102);
             chkTower.Name = "chkTower";
             chkTower.Size = new Size(144, 54);
             chkTower.TabIndex = 1;
@@ -65,9 +65,9 @@
             // 
             btnStartListen.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
             btnStartListen.ForeColor = SystemColors.ActiveCaptionText;
-            btnStartListen.Location = new Point(71, 237);
+            btnStartListen.Location = new Point(12, 241);
             btnStartListen.Name = "btnStartListen";
-            btnStartListen.Size = new Size(365, 78);
+            btnStartListen.Size = new Size(280, 67);
             btnStartListen.TabIndex = 6;
             btnStartListen.Text = "Start Listening";
             btnStartListen.UseVisualStyleBackColor = true;
@@ -77,7 +77,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(71, 90);
+            label1.Location = new Point(34, 27);
             label1.Name = "label1";
             label1.Size = new Size(234, 50);
             label1.TabIndex = 7;
@@ -86,7 +86,7 @@
             // txtAirportcode
             // 
             txtAirportcode.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
-            txtAirportcode.Location = new Point(311, 90);
+            txtAirportcode.Location = new Point(342, 24);
             txtAirportcode.Name = "txtAirportcode";
             txtAirportcode.Size = new Size(321, 57);
             txtAirportcode.TabIndex = 8;
@@ -97,18 +97,18 @@
             listStatus.Font = new Font("Segoe UI", 14.1428576F, FontStyle.Regular, GraphicsUnit.Point);
             listStatus.FormattingEnabled = true;
             listStatus.ItemHeight = 45;
-            listStatus.Location = new Point(529, 246);
+            listStatus.Location = new Point(342, 228);
             listStatus.Name = "listStatus";
-            listStatus.Size = new Size(961, 274);
+            listStatus.Size = new Size(774, 274);
             listStatus.TabIndex = 9;
             // 
             // btnStopListening
             // 
             btnStopListening.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
             btnStopListening.ForeColor = SystemColors.ActiveCaptionText;
-            btnStopListening.Location = new Point(71, 336);
+            btnStopListening.Location = new Point(12, 329);
             btnStopListening.Name = "btnStopListening";
-            btnStopListening.Size = new Size(365, 78);
+            btnStopListening.Size = new Size(280, 70);
             btnStopListening.TabIndex = 10;
             btnStopListening.Text = "Stop";
             btnStopListening.UseVisualStyleBackColor = true;
@@ -118,7 +118,7 @@
             // 
             chkGround.AutoSize = true;
             chkGround.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Regular, GraphicsUnit.Point);
-            chkGround.Location = new Point(776, 149);
+            chkGround.Location = new Point(342, 152);
             chkGround.Name = "chkGround";
             chkGround.Size = new Size(172, 54);
             chkGround.TabIndex = 11;
@@ -130,7 +130,7 @@
             AcceptButton = btnStartListen;
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1585, 564);
+            ClientSize = new Size(1164, 532);
             Controls.Add(chkGround);
             Controls.Add(btnStopListening);
             Controls.Add(listStatus);
